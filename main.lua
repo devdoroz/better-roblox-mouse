@@ -5,7 +5,7 @@ local camera = workspace.CurrentCamera
 
 roblox_mouse.TargetFilter = workspace
 
-local Mouse = {raycastParams = RaycastParams, Hit = CFrame.new(0, 0, 0), Target = nil}; do
+local Mouse = {raycastParams = RaycastParams, Hit = CFrame.new(0, 0, 0), Target = nil, Button1Down = roblox_mouse.Button1Down, Button2Down = roblox_mouse.Button2Down}; do
 	function Mouse:SetRaycastParams(raycastParams: RaycastParams)
 		Mouse.raycastParams = raycastParams
 	end

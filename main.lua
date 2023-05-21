@@ -12,9 +12,9 @@ local Mouse = {raycastParams = RaycastParams, Hit = CFrame.new(0, 0, 0), Target 
 
 	task.spawn(function()
 		while true do
-			runService.RenderStepped:Wait()
+			task.wait()
 			local hit = roblox_mouse.Hit.Position
-			local ray = workspace:Raycast(camera.CFrame.Position, (hit - camera.CFrame.Position).Unit * 500, Mouse.raycastParams)
+			local ray = workspace:Raycast(camera.CFrame.Position, (hit - camera.CFrame.Position).Unit * 5000, Mouse.raycastParams)
 			local rayPos = (ray and ray.Position) or hit
 			Mouse.Hit = CFrame.new(ray.Position)
 			Mouse.Target = (ray and ray.Instance) or nil

@@ -13,11 +13,13 @@ local Mouse = {raycastParams = RaycastParams.new(), Hit = CFrame.new(0, 0, 0), T
 	task.spawn(function()
 		while true do
 			task.wait()
-			local hit = roblox_mouse.Hit.Position
-			local ray = workspace:Raycast(camera.CFrame.Position, (hit - camera.CFrame.Position).Unit * 5000, Mouse.raycastParams)
-			local rayPos = (ray and ray.Position) or hit
-			Mouse.Hit = CFrame.new(ray.Position)
-			Mouse.Target = (ray and ray.Instance) or nil
+			pcall(function()
+				local hit = roblox_mouse.Hit.Position
+				local ray = workspace:Raycast(camera.CFrame.Position, (hit - camera.CFrame.Position).Unit * 500, Mouse.raycastParams)
+				local rayPos = (ray and ray.Position) or hit
+				Mouse.Hit = CFrame.new(ray.Position)
+				Mouse.Target = (ray and ray.Instance) or nil
+			end)
 		end
 	end)
 end
